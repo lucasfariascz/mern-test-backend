@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "DataEntry" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "data" TEXT NOT NULL
+);
