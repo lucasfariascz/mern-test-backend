@@ -5,11 +5,14 @@ export class QuestionRepositoryDB implements QuestionRepository {
 
   async save(question: string): Promise<void> {
     const prisma = new PrismaClient()
-    await prisma.dataEntry.create({
-      data: {
-        data: JSON.stringify(question)
+    await prisma.dataEntry.create(
+      {
+        data: {
+          name: 'Example JSON Data',
+          jsonContent: JSON.stringify(question),
+        },
       }
-    })
+    )
   }
 
 }
