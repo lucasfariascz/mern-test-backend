@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 export class CreateUserController {
-  async createUser(req: Request, res: Response) {
+  async createUser(req: Request, res: Response): Promise<any> {
     const prisma = new PrismaClient({
       log: ['query', 'info', 'warn', 'error'],
     });
