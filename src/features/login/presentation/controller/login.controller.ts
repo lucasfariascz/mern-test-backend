@@ -38,7 +38,7 @@ export class LoginController {
         user: { id: user.id, email: user.email, name: user.name }
       });
     } catch (error) {
-      res.status(500).json({ message: 'Error logging in' });
+      res.status(500).json({ message: 'Error logging in', error: error });
     }
   }
 }
