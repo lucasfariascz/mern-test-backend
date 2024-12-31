@@ -2,10 +2,20 @@ import { QuestionRepository } from "../../domain/repositories/question.repositor
 import { PrismaClient } from '@prisma/client'
 
 export class QuestionRepositoryDB implements QuestionRepository {
+  
+  private readonly prisma: PrismaClient
+
+  constructor() {
+    this.prisma = new PrismaClient()
+  }
+
+  async getAll(): Promise<any> {
+    return await this.prisma.dataEntry.findMany()
+  }
 
   async save(question: string): Promise<void> {
-    const prisma = new PrismaClient()
-    await prisma.dataEntry.create(
+    
+    await this.prisma.dataEntry.create(
       {
         data: {
           name: 'Example JSON Data',
