@@ -29,7 +29,7 @@ server.get('/question', authMiddleware, (req, res) => {
   getQuestionAllController.getAll(req, res)
 });
 
-server.post('/create-user', (req, res) => {
+server.post('/create', (req, res) => {
   createUserController.createUser(req, res)
 })
 
