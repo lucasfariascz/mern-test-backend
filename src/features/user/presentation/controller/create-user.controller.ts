@@ -4,7 +4,9 @@ import bcrypt from 'bcrypt';
 
 export class CreateUserController {
   async createUser(req: Request, res: Response) {
-    const prisma = new PrismaClient();
+    const prisma = new PrismaClient({
+      log: ['query', 'info', 'warn', 'error'],
+    });
     try {
       const { email, password, name } = req.body;
       
