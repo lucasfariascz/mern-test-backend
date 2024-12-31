@@ -3,15 +3,21 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 export class CreateUserController {
-  async createUser(req: Request, res: Response): Promise<any> {
-    const prisma = new PrismaClient({
+
+  private readonly prisma
+
+  constructor(){
+    this.prisma = new PrismaClient({
       log: ['query', 'info', 'warn', 'error'],
-    });
+    })
+  }
+
+  async createUser(req: Request, res: Response): Promise<any> {
     try {
       const { email, password, name } = req.body;
       
       // Check if user exists
-      const existingUser = await prisma.user.findUnique({
+      const existingUser = await this.prisma.user.findUnique({
         where: { email }
       });
   
@@ -23,7 +29,7 @@ export class CreateUserController {
       const hashedPassword = await bcrypt.hash(password, 10);
   
       // Create user
-      const user = await prisma.user.create({
+      const user = await this.prisma.user.create({
         data: {
           email,
           password: hashedPassword,
