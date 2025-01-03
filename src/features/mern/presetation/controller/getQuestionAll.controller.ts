@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { GetQuestionAllUseCase } from '../../application/use-cases/getQuestionAll.use-case copy';
+import { GetQuestionAllUseCase } from '../../application/use-cases/getQuestionAll.use-case';
 
 
 export class GetQuestionAllController {
