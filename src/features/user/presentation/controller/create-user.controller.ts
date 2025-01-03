@@ -10,6 +10,7 @@ export class CreateUserController {
     try {
       const { email, password, name }: User = req.body;
       await this.createUserUseCase.execute({ email, password, name })  
+      res.status(200).send()
     } catch (error) {
       res.status(500).json({ message: 'Error creating user', error: error });
     }
