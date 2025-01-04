@@ -4,13 +4,8 @@ services:
   app:
     build: .
     container_name: node_app
-    command: "npm run start" # Ou outro comando que você configure
     working_dir: /home/node/app
-    volumes:
-      - .:/home/node/app
-      - /home/node/app/node_modules
     environment:
-      # Configura o URL do banco de dados externo
       DATABASE_URL: "postgresql://mern_test_backend_db_user:V4QfIqLo5d5wanm06ApksmxPYTbF4uxo@dpg-ctocnkpopnds73fh36lg-a.ohio-postgres.render.com/mern_test_backend_db"
     ports:
       - "3000:3000"
