@@ -32,19 +32,19 @@ const getQuestionAllController = new GetQuestionAllController(getQuestionAllUseC
 const createUserController = new CreateUserController(createUserUseCase)
 const loginController = new LoginController(loginUseCase)
 
-server.post('/question', (req, res) => {
+server.post('/api/question', (req, res) => {
   saveQuestionController.create(req, res)
 });
 
-server.get('/question', authMiddleware, (req, res) => {
+server.get('/api/question', authMiddleware, (req, res) => {
   getQuestionAllController.getAll(req, res)
 });
 
-server.post('/create', (req, res) => {
+server.post('/api/create', (req, res) => {
   createUserController.createUser(req, res)
 })
 
-server.post('/login', (req, res) => {
+server.post('/api/login', (req, res) => {
   loginController.login(req, res)
 })
 
