@@ -13,7 +13,9 @@ import { CreateUserUseCase } from './features/user/application/use-cases/create-
 import { LoginUseCase } from './features/login/application/use-cases/login.use-case';
 
 const server = express();
-server.use(cors());
+server.use(cors({
+  origin: '*',  // Permite qualquer origem
+}));
 server.use(express.json());
 
 // # Repository
